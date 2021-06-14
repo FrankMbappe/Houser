@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="115dp"
+    android:layout_margin="@dimen/item_margin"
+    android:maxWidth="350dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/item_padding">
+
+        <!-- IMAGE -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardNewHouseCardView"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/cardHouseImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/house1" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- DESCRIPTION -->
+        <TextView
+            android:id="@+id/cardNewHouseTitle"
+            style="@style/itemTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_padding"
+            android:text="House title"
+            app:layout_constraintStart_toEndOf="@+id/cardNewHouseCardView"
+            app:layout_constraintTop_toTopOf="@+id/cardNewHouseCardView" />
+
+        <TextView
+            android:id="@+id/cardNewHouseSubTitle"
+            style="@style/itemSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_padding"
+            android:layout_marginTop="3dp"
+            android:text="1475 house address"
+            app:layout_constraintStart_toEndOf="@+id/cardNewHouseCardView"
+            app:layout_constraintTop_toBottomOf="@id/cardNewHouseTitle" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/item_padding"
+            android:layout_marginTop="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@+id/cardNewHouseCardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardNewHouseSubTitle">
+
+            <ImageView
+                android:id="@+id/cardHouseImageHeartView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_heart_fill"
+                app:tint="@color/red_pink" />
+
+            <TextView
+                android:id="@+id/cardHouseTxtLikeCount"
+                style="@style/itemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="145" />
+        </LinearLayout>
+
+        <!-- DATE -->
+        <TextView
+            android:id="@+id/cardNewHouseTxtDate"
+            style="@style/itemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last monday at 5:05pm"
+            app:layout_constraintBottom_toBottomOf="@+id/cardNewHouseCardView"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

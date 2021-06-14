@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddHouseActivity">
+
+    <!-- HEADER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/addHouseActivityTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/default_margin">
+
+        <ImageButton
+            android:id="@+id/addHouseActivityBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            app:tint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_add_a_house"
+            app:layout_constraintBottom_toBottomOf="@+id/addHouseActivityBackBtn"
+            app:layout_constraintStart_toEndOf="@+id/addHouseActivityBackBtn"
+            app:layout_constraintTop_toTopOf="@+id/addHouseActivityBackBtn"
+            android:layout_marginStart="@dimen/default_margin"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- BODY -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/addHouseActivityTopBar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- BODY > Image Picker -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addHouseActivityImagePicker"
+                android:layout_width="match_parent"
+                android:layout_height="365dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/addHouseActivityImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/house_alt_1"
+                    android:scaleType="centerCrop"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/addHouseActivityPickPhotoCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:backgroundTint="@color/white"
+                    android:layout_margin="@dimen/default_margin"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="15dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_camera"
+                            app:tint="@color/black"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/str_pick_a_photo"
+                            android:layout_marginStart="10dp"
+                            style="@style/itemTitle"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- BODY > Fields -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/addHouseActivityImagePicker"
+                android:padding="@dimen/default_margin"
+                >
+
+                <!-- BODY > Fields > Title -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/str_title"
+                        style="@style/fieldLabel"/>
+                    <EditText
+                        android:id="@+id/addHouseActivityInputTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/str_name_of_your_house"
+                        android:inputType="text"
+                        android:autofillHints="name"/>
+                </LinearLayout>
+
+                <!-- BODY > Fields > Address -->
+                <LinearLayout
+                    android:layout_marginTop="@dimen/default_field_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/str_address"
+                        style="@style/fieldLabel" />
+                    <EditText
+                        android:id="@+id/addHouseActivityInputAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/str_district_city_country"
+                        android:inputType="text"
+                        android:autofillHints="name"/>
+                </LinearLayout>
+
+                <!-- BODY > Fields > Location -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/addHouseActivityLocationCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_field_spacing"
+                    app:cardElevation="5dp"
+                    app:cardCornerRadius="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/item_padding">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_get_my_location"
+                            style="@style/buttonTitle"/>
+                        <TextView
+                            android:id="@+id/addHouseTxtLongitudeLatitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(0, 0)"
+                            style="@style/buttonSubTitle"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- BODY > Fields > Publish -->
+                <Button
+                    android:id="@+id/addHouseActivityPublishBtn"
+                    android:layout_marginTop="@dimen/default_field_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_publish"
+                    style="@style/primaryButton"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

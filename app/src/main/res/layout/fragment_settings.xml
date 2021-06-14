@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TITLE -->
+    <TextView
+        android:id="@+id/textView"
+        style="@style/sectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tab_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- USER INFO -->
+    <!-- USER INFO > Picture -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="@dimen/section_margin"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="85dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <ImageView
+            android:id="@+id/settingsUserPicture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/user_picture"
+            android:scaleType="centerCrop"/>
+    </androidx.cardview.widget.CardView>
+    <ImageButton
+        android:id="@+id/settingsChangePicBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_camera"
+        android:background="@drawable/button_back"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:tint="@color/white"
+        android:padding="10dp"
+        android:elevation="5dp"/>
+
+    <!-- USER INFO > Name -->
+    <TextView
+        android:id="@+id/settingsUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        style="@style/sectionTitle"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        android:layout_marginTop="@dimen/default_field_spacing"/>
+
+    <!-- DIVIDER -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@id/settingsUserName"
+        android:layout_margin="@dimen/default_margin"/>
+
+    <!-- FIELDS -->
+    <!-- FIELDS > Theme -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settingsLayoutTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:layout_marginTop="@dimen/default_field_spacing">
+
+        <TextView
+            android:id="@+id/settingsLabelTheme"
+            style="@style/fieldLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_theme"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchDarkMode"
+            style="@style/fieldText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_enable_dark_mode"
+            android:padding="@dimen/item_padding"
+            app:layout_constraintTop_toBottomOf="@id/settingsLabelTheme"
+            app:layout_constraintStart_toStartOf="@id/settingsLabelTheme" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- FIELDS > Address -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_field_spacing"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/settingsLayoutTheme">
+
+        <TextView
+            android:id="@+id/settingsLabelLanguage"
+            style="@style/fieldLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_language"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/settingsTxtLanguage"
+            style="@style/fieldText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/item_padding"
+            android:text="@string/str_english"
+            app:drawableEndCompat="@drawable/ic_arrow_down"
+            app:layout_constraintStart_toStartOf="@id/settingsLabelLanguage"
+            app:layout_constraintTop_toBottomOf="@id/settingsLabelLanguage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- LOG OUT -->
+    <Button
+        android:id="@+id/settingsLogOutBtn"
+        style="@style/secondaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_log_out"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:layout_marginTop="@dimen/default_margin"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
